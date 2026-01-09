@@ -21,27 +21,23 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42
 )
 
-# 3. Preprocessing (change this per experiment)
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+# # 3. Preprocessing
+# scaler = StandardScaler()
+# X_train = scaler.fit_transform(X_train)
+# X_test = scaler.transform(X_test)
 
-# 4. Model (change this per experiment)
+# 4. Model
 model = LinearRegression()
 
-# 5. Train
 model.fit(X_train, y_train)
 
-# 6. Evaluate
 preds = model.predict(X_test)
 mse = mean_squared_error(y_test, preds)
 r2 = r2_score(y_test, preds)
 
-# 7. Print metrics (MANDATORY for Actions)
 print(f"MSE: {mse}")
 print(f"R2: {r2}")
 
-# 8. Save outputs
 Path("output").mkdir(parents=True, exist_ok=True)
 joblib.dump(model, "output/model.joblib")
 
