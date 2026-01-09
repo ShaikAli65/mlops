@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 import joblib
 import numpy as np
 from ucimlrepo import fetch_ucirepo
@@ -41,6 +42,7 @@ print(f"MSE: {mse}")
 print(f"R2: {r2}")
 
 # 8. Save outputs
+Path("output").mkdir(parents=True, exist_ok=True)
 joblib.dump(model, "output/model.joblib")
 
 results = {
