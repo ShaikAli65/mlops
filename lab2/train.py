@@ -6,10 +6,12 @@ from ucimlrepo import fetch_ucirepo
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import Ridge
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
 # 1. Load dataset
+model = Ridge(alpha=1.0)
 wine = fetch_ucirepo(id=186)
 X = wine.data.features
 y = wine.data.targets.values.ravel()
@@ -27,7 +29,7 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 # 4. Model
-model = LinearRegression()
+model = Ridge(alpha=1.0)
 
 model.fit(X_train, y_train)
 
