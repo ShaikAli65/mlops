@@ -29,7 +29,7 @@ X_test = scaler.transform(X_test)
 
 # 4. Model
 model = RandomForestRegressor(
-    n_estimators=200,
+    n_estimators=300,
     max_depth=10,
     random_state=42
 )
