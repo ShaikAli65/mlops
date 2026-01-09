@@ -17,14 +17,14 @@ y = wine.data.targets.values.ravel()
 # 2. Train-test split
 X_train, X_test, y_train, y_test = train_test_split(
     X, y,
-    test_size=0.2,
+    test_size=0.3,
     random_state=42
 )
 
-# # 3. Preprocessing
-# scaler = StandardScaler()
-# X_train = scaler.fit_transform(X_train)
-# X_test = scaler.transform(X_test)
+# 3. Preprocessing
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
 
 # 4. Model
 model = LinearRegression()
